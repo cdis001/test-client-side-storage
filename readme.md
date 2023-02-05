@@ -6,18 +6,23 @@
 
 ## Client Side Storages
 
-1.  JavaScript variables
-2.  DOM node storage
-3.  Cookies
-4.  Web Storage
+1.  Cookies
+
+    - To Do
+      - 쿠키에 메모 저장
+      - 쿠키에 로그인 정보 저장 후 서버 통신
+      - 쿠키에 로그인 정보 + 5MB의 정보 저장 후 서버 통신
+    - log
+      - 쿠키에 값을 저장하고, 값을 삭제하는 과정이 좀.. 효율적이진 않아 보임. 아마 옛날에 주로 쓰이던 저장소라 그런듯
+
+2.  Web Storage
     - sessionStorage
     - localStorage
-5.  IndexedDB
-6.  Cache API
-7.  File System Access API
-8.  File and Directory Entries API
-9.  window.name
-10. WebSQL
+3.  IndexedDB
+4.  Cache API
+5.  File System Access API
+6.  File and Directory Entries API
+7.  window.name
 
 ## log
 
