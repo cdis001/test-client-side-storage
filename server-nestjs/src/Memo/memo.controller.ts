@@ -1,8 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+
 import { MemoService } from './memo.service';
 import { CreateMemoDto } from './dto/create-memo.dto';
 import { UpdateMemoDto } from './dto/update-memo.dto';
 
+@UseGuards(AuthGuard('local'))
 @Controller('memo')
 export class MemoController {
   constructor(private readonly memoService: MemoService) {}
@@ -15,6 +27,11 @@ export class MemoController {
   @Get()
   findAll() {
     return this.memoService.findAll();
+  }
+
+  @Get('user/:id')
+  findByUserId(@Param('id') id: string) {
+    return this.memoService.findByUserId(+id);
   }
 
   @Get(':id')

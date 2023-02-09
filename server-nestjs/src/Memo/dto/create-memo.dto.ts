@@ -1,1 +1,5 @@
-export class CreateMemoDto {}
+export class CreateMemoDto {
+  id?: number;
+  userId: number;
+  contents: string;
+}

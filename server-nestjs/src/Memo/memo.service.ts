@@ -1,26 +1,64 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+import { MemoEntity } from './entities/memo.entity';
+import { UserEntity } from '../users/entities/user.entity';
 import { CreateMemoDto } from './dto/create-memo.dto';
 import { UpdateMemoDto } from './dto/update-memo.dto';
 
 @Injectable()
 export class MemoService {
-  create(createMemoDto: CreateMemoDto) {
-    return 'This action adds a new memo';
+  constructor(
+    @InjectRepository(MemoEntity)
+    private memoRepository: Repository<MemoEntity>,
+    @InjectRepository(UserEntity)
+    private userRepository: Repository<UserEntity>,
+  ) {}
+  async create(createMemoDto: CreateMemoDto) {
+    const user = await this.userRepository.findOne({
+      where: { id: createMemoDto.userId },
+    });
+    const data = await this.memoRepository.create(createMemoDto);
+
+    data.user = user;
+    return await this.memoRepository.save(data);
   }
 
-  findAll() {
-    return `This action returns all memo`;
+  async findAll() {
+    return await this.memoRepository.find();
   }
 
-  findOne(id: number) {
+  async findByUserId(id: number) {
+    const user = await this.userRepository.findOne({
+      where: { id },
+    });
+    return await this.memoRepository.findOne({ where: { user } });
+  }
+
+  async findOne(id: number) {
     return `This action returns a #${id} memo`;
   }
 
-  update(id: number, updateMemoDto: UpdateMemoDto) {
-    return `This action updates a #${id} memo`;
+  async update(id: number, updateMemoDto: UpdateMemoDto) {
+    const data = await this.memoRepository.findOne({
+      where: { id },
+      relations: ['user'],
+    });
+
+    if (data.user.id !== updateMemoDto.userId) {
+      throw new HttpException(
+        '작성자만 수정할 수 있습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    const newMemo = { contents: updateMemoDto.contents };
+
+    await this.memoRepository.update({ id }, newMemo);
+    return updateMemoDto;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} memo`;
+  async remove(id: number) {
+    return await this.memoRepository.delete(id);
   }
 }
