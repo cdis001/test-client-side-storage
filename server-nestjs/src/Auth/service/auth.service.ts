@@ -37,9 +37,23 @@ export class AuthService {
     return null;
   }
   async login(user: UserEntity) {
-    const payload = { username: user.username, sub: user.id };
-    return {
-      access_token: this.jwt.sign(payload),
-    };
+    const foundUser = await this.userRepository.findOne({
+      where: {
+        username: user.username,
+      },
+    });
+    if (!!foundUser) {
+      const payload = { username: foundUser.username, sub: foundUser.id };
+      console.log(foundUser);
+      return {
+        access_token: this.jwt.sign(payload),
+        user_id: foundUser.id,
+      };
+    } else {
+      throw new HttpException(
+        '사용자가 존재하지 않습니다.',
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
   }
 }

@@ -7,14 +7,16 @@ import {
   Param,
   Delete,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 
 import { MemoService } from './memo.service';
 import { CreateMemoDto } from './dto/create-memo.dto';
 import { UpdateMemoDto } from './dto/update-memo.dto';
 
-@UseGuards(AuthGuard('local'))
+@UseGuards(AuthGuard('jwt'))
 @Controller('memo')
 export class MemoController {
   constructor(private readonly memoService: MemoService) {}
@@ -32,6 +34,13 @@ export class MemoController {
   @Get('user/:id')
   findByUserId(@Param('id') id: string) {
     return this.memoService.findByUserId(+id);
+  }
+
+  @Get('cookie/user')
+  findByCookie(@Req() request: Request) {
+    const user = { username: '', ...request.user };
+
+    return this.memoService.findByCookie(user.username);
   }
 
   @Get(':id')

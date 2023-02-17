@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+import { memoTypes } from "../../../types/memo";
+import {
+  getCookie,
+  setCookie,
+  deleteCookie,
+  clearCookies,
+} from "../../../api/cookie";
+import { getCookieMemo, createMemo, deleteMemo } from "../../../api/memo";
 
 const MemoInputForm = styled.form`
   width: 350px;
@@ -65,59 +75,74 @@ const MemoBox = styled.div`
   }
 `;
 
+const LogoutBtn = styled.button`
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  color: #ef709d;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+`;
+
 const CookiesToDos = () => {
   const [text, setText] = useState<string>("");
-  const [memo, setMemo] = useState<string[]>([]);
+  const [memo, setMemo] = useState<memoTypes[]>([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const newMemo = [...memo, text];
-    setMemo(newMemo);
-    setText("");
-    setMemoCookie(newMemo);
-  };
+  const navigate = useNavigate();
 
-  const deleteMemo = (idx: number) => {
-    let newMemo = [...memo];
-    newMemo.splice(idx, 1);
-    setMemo(newMemo);
-    setMemoCookie(newMemo);
-  };
+  const getMemo = async () => {
+    const { data, status } = await getCookieMemo();
+    // console.log(data);
 
-  const setMemoCookie = (newMemo: string[]) => {
-    var exdate = new Date();
-    exdate.setDate(exdate.getDate() + 3);
-    var cookie_value = newMemo + "; expires=" + exdate.toUTCString();
-    document.cookie = `memo=${cookie_value}`;
-  };
-
-  const showStorageEstimate = async () => {
-    if (navigator.storage && navigator.storage.estimate) {
-      const quota = await navigator.storage.estimate();
-      // quota.usage -> 사용 중인 용량(byte)
-      // quota.quota -> 사용할 수 있는 전체 용량(byte)
-      const percentageUsed = (quota.usage / quota.quota) * 100;
-      console.log(
-        `사용할 수 있는 용량의 ${percentageUsed}%를 사용하고 있습니다.`
-      );
-      const remaining = quota.quota - quota.usage;
-      console.log(`앞으로 ${remaining} 바이트를 더 사용할 수 있습니다.`);
+    if (status === 200) {
+      setMemo(data);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { data, status } = await createMemo({ contents: text });
+    console.log(status);
+    console.log(data);
+    if (status === 201) {
+      const newMemo = [...memo, { contents: text }];
+      setMemo(newMemo);
+      setText("");
+    }
+  };
+
+  const deleteMemoBtn = async (id: number, idx: number) => {
+    const { data, status } = await deleteMemo(id);
+    // console.log(status);
+    // console.log(data);
+    if (status === 200) {
+      let newMemo = [...memo];
+      newMemo.splice(idx, 1);
+      setMemo(newMemo);
+    }
+  };
+
+  const logout = () => {
+    deleteCookie("token");
+    deleteCookie("userId");
+    navigate("/cookies/login");
   };
 
   useEffect(() => {
-    if (!!document.cookie) {
-      let cookieMemo = document.cookie.split("memo=")[1].split(",");
-      cookieMemo[0].length === 0
-        ? null
-        : setMemo(document.cookie.split("memo=")[1].split(","));
+    const token = getCookie("token");
+
+    if (!!!token) {
+      navigate("/cookies/login");
     }
-    showStorageEstimate();
+
+    getMemo();
   }, []);
 
   return (
     <section>
       <h1>Cookies</h1>
+      <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
       <MemoInputForm onSubmit={handleSubmit}>
         <input
           value={text}
@@ -129,9 +154,9 @@ const CookiesToDos = () => {
       </MemoInputForm>
       <MemoBox>
         {memo.map((data, idx) => (
-          <div key={idx}>
-            <label>{data}</label>
-            <button onClick={() => deleteMemo(idx)}>🗑</button>
+          <div key={data.id}>
+            <label>{data.contents}</label>
+            <button onClick={() => deleteMemoBtn(data.id, idx)}>🗑</button>
           </div>
         ))}
       </MemoBox>

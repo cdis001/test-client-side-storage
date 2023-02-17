@@ -24,5 +24,6 @@ export const deleteCookie = (cookieName) => {
 };
 
 export const clearCookies = () => {
+  console.log(document.cookie);
   document.cookie = null;
 };

@@ -1,4 +1,4 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus, Req } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -33,7 +33,14 @@ export class MemoService {
     const user = await this.userRepository.findOne({
       where: { id },
     });
-    return await this.memoRepository.findOne({ where: { user } });
+    return await this.memoRepository.find({ where: { user } });
+  }
+
+  async findByCookie(username: string) {
+    const user = await this.userRepository.findOne({
+      where: { username },
+    });
+    return await this.memoRepository.find({ where: { user } });
   }
 
   async findOne(id: number) {
