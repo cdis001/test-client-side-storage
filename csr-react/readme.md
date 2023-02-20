@@ -10,5 +10,29 @@
    - Last applied commit id: 5f6ab646a840eb007f07b4c7375ef2abc3d1316e
 
 2. 쿠키에 로그인 정보 저장 후 서버 통신
-   - 아직 완성도 안 했는데 서로 다른 값이 있을 경우 값 가져오는게 너무나 귀찮다..
+
+   - 아직 완성도 안 했는데 쿠키에 서로 다른 값이 있을 경우 값 가져오는게 너무나 귀찮다..
+     - 함수 따로 정의해주는걸로 해결!
+   - 서버/클라이언트가 로컬에서 통신하는거라 CORS 에러가 애먹임..
+   - 쿠키에 토큰 넣는게 꽤 오랫동안 정석이였어서 그런지 구현하는데 어려움은 없었음
+   - 다만 확실히 보안에는 취약해보임.. 사용자가 쿠키를 직접 조작할 수 있기 때문
+   - 쿠키 관리를 제대로 하지 않으면 내가 원하는 값이 안 들어갈 수 있음
+     - userId 값이 잘못 들어가서 쿠키에 undefined인 userId와 제대로 된 값이 들어간 userId가 있었는데, undefined인 userId로 create memo를 하니 서버에 제대로 저장되지 않는 이슈가 있었음
+
 3. 쿠키에 로그인 정보 + 5MB의 정보 저장 후 서버 통신
+
+## log
+
+- axios default header 설정법
+
+  1. axios.defaults.headers.(method)\[(header name)] = (value)
+     - method에는 get, post...등의 rest api 메소드를 넣어줌
+     - 만약, 메소드에 상관 없이 디폴트 값으로 하고 싶다면 'common'이라고 넣어주면 됨
+
+  > https://axios-http.com/docs/config_defaults
+
+## issue
+
+- server에 cookie 전송 안 되는 문제
+  - withCredentials 옵션을 넣으라는데 해당 옵션 넣으면 오류
+  - 서버에서 cors 옵션을 설정해줘서 해결! 자세한 내용은 서버쪽 readme에 적음
