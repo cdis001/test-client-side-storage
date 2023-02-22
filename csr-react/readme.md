@@ -19,8 +19,6 @@
    - 쿠키 관리를 제대로 하지 않으면 내가 원하는 값이 안 들어갈 수 있음
      - userId 값이 잘못 들어가서 쿠키에 undefined인 userId와 제대로 된 값이 들어간 userId가 있었는데, undefined인 userId로 create memo를 하니 서버에 제대로 저장되지 않는 이슈가 있었음
 
-3. 쿠키에 로그인 정보 + 5MB의 정보 저장 후 서버 통신
-
 ## log
 
 - axios default header 설정법
@@ -31,8 +29,12 @@
 
   > https://axios-http.com/docs/config_defaults
 
+- memo add시 div에 key값이 없다고 에러가 나옴
+  - add한 뒤에 return 해주는 데이터 값으로 memo값을 넣어줬어야 했는데 기존 코드 복붙하다가 까먹어버림... 반성...
+
 ## issue
 
 - server에 cookie 전송 안 되는 문제
+
   - withCredentials 옵션을 넣으라는데 해당 옵션 넣으면 오류
   - 서버에서 cors 옵션을 설정해줘서 해결! 자세한 내용은 서버쪽 readme에 적음

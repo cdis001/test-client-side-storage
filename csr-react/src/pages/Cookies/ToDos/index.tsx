@@ -88,6 +88,7 @@ const LogoutBtn = styled.button`
 const CookiesToDos = () => {
   const [text, setText] = useState<string>("");
   const [memo, setMemo] = useState<memoTypes[]>([]);
+  const [size, setSize] = useState<number>(0);
 
   const navigate = useNavigate();
 
@@ -103,10 +104,10 @@ const CookiesToDos = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { data, status } = await createMemo({ contents: text });
-    console.log(status);
-    console.log(data);
+    // console.log(status);
+    // console.log(data);
     if (status === 201) {
-      const newMemo = [...memo, { contents: text }];
+      const newMemo = [...memo, { id: data.id, contents: data.contents }];
       setMemo(newMemo);
       setText("");
     }
@@ -135,7 +136,6 @@ const CookiesToDos = () => {
     if (!!!token) {
       navigate("/cookies/login");
     }
-
     getMemo();
   }, []);
 
