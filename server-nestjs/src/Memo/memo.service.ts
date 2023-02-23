@@ -22,7 +22,9 @@ export class MemoService {
     const data = await this.memoRepository.create(createMemoDto);
 
     data.user = user;
-    return await this.memoRepository.save(data);
+    const { id, contents } = await this.memoRepository.save(data);
+
+    return { id, contents };
   }
 
   async findAll() {

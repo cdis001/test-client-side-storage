@@ -44,7 +44,6 @@ export class AuthService {
     });
     if (!!foundUser) {
       const payload = { username: foundUser.username, sub: foundUser.id };
-      console.log(foundUser);
       return {
         access_token: this.jwt.sign(payload),
         user_id: foundUser.id,
