@@ -1,0 +1,12 @@
+{
+  "name": "test-client-side-storage",
+  "packageManager": "yarn@3.4.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
