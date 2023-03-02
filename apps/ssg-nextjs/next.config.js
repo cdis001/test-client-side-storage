@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
-const withTM = require("next-transpile-modules")(["@testCS/lib"]);
+const withTM = require("next-transpile-modules")(["@test/lib"]);
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  },
 };
 
-// module.exports = withPlugins([...plugins], nextConfig);
 module.exports = withTM(nextConfig);
