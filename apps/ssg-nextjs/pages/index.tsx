@@ -1,8 +1,36 @@
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import Link from "next/link";
+import styled from "styled-components";
 
 import { Button } from "@test/lib";
 
+const CheckVolumDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  & > div {
+    margin: 10px;
+  }
+`;
+
 export default function Home() {
+  const [usage, setUsage] = useState<number>(0);
+  const [percentageUsed, setPercentageUsed] = useState<number>(0);
+  const [remainingByte, setRemainingByte] = useState<number>(0);
+  const showStorageEstimate = async () => {
+    if (navigator.storage && navigator.storage.estimate) {
+      const quota = await navigator.storage.estimate();
+
+      setUsage(quota.usage);
+      setPercentageUsed((quota.usage / quota.quota) * 100);
+      setRemainingByte(quota.quota - quota.usage);
+    }
+  };
+  useEffect(() => {
+    showStorageEstimate();
+  }, []);
   return (
     <>
       <Head>
@@ -12,7 +40,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
+        <h1>Client Side Storage</h1>
         <Button title={"TEST"} />
+        <CheckVolumDiv>
+          <span>사용 중인 용량: {usage}</span>
+          <span>사용할 수 있는 용량: {percentageUsed}%</span>
+          <span>남은 용량: {remainingByte} byte</span>
+          {/* <div>
+          <button>1KB 추가</button>
+        </div> */}
+        </CheckVolumDiv>
+        <ul>
+          <li>
+            <Link href="/cookies">Cookies</Link>
+          </li>
+        </ul>
       </section>
     </>
   );

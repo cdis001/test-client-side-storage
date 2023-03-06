@@ -1,0 +1,13 @@
+{
+  "name": "@test/types",
+  "packageManager": "yarn@3.4.1",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "dependencies": {
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

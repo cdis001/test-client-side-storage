@@ -20,14 +20,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:apps/ssg-nextjs"\
       },\
       {\
+        "name": "@test/api",\
+        "reference": "workspace:packages/api"\
+      },\
+      {\
         "name": "@test/lib",\
         "reference": "workspace:packages/lib"\
+      },\
+      {\
+        "name": "@test/types",\
+        "reference": "workspace:packages/types"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["@test/api", ["workspace:packages/api"]],\
       ["@test/lib", ["workspace:packages/lib"]],\
+      ["@test/types", ["workspace:packages/types"]],\
       ["ssg-nextjs", ["workspace:apps/ssg-nextjs"]],\
       ["test-client-side-storage", ["workspace:."]]\
     ],\
@@ -3283,6 +3293,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@test/api", [\
+        ["workspace:packages/api", {\
+          "packageLocation": "./packages/api/",\
+          "packageDependencies": [\
+            ["@test/api", "workspace:packages/api"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@test/lib", [\
         ["workspace:packages/lib", {\
           "packageLocation": "./packages/lib/",\
@@ -3302,6 +3322,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],\
             ["styled-components", "virtual:50bc99a12bd14c5ad837adc7452e51ce87c845b31ce3e728a2ee44f2dfcdde05616dbe0dfc3d1d0771e83cd3bfeee340156d7783a0bfa02ef6962b42516fcc95#npm:5.3.6"],\
             ["typescript", "patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=a66ed4"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@test/types", [\
+        ["workspace:packages/types", {\
+          "packageLocation": "./packages/types/",\
+          "packageDependencies": [\
+            ["@test/types", "workspace:packages/types"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -9341,7 +9371,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ssg-nextjs", "workspace:apps/ssg-nextjs"],\
             ["@emotion/react", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:11.10.6"],\
             ["@next/font", "npm:13.1.6"],\
+            ["@test/api", "workspace:packages/api"],\
             ["@test/lib", "workspace:packages/lib"],\
+            ["@test/types", "workspace:packages/types"],\
             ["@types/node", "npm:18.14.0"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
