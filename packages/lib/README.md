@@ -167,3 +167,15 @@
 
    yarn workspace ssg-nextjs run dev
    ```
+
+## LOG
+
+- export & export default 차이
+  - export
+
+    - 변수, 함수, class 등을 내보낼 때 사용
+
+  - export default
+    - 모듈을 내보낼 때 사용
+    - 해당 문법으로 모듈을 내보내면 import시 {} 없이 사용 가능
+  > https://ko.javascript.info/import-export#ref-4122
