@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { getCookie, setCookie, deleteCookie, clearCookies } from "@test/api";
 import { memoTypes } from "@test/types";
 
+import { setCookiesTodos, getCookiesTodos } from "../../api/cookie";
+
 const MemoInputForm = styled.form`
   width: 350px;
   border: 1px solid #918e8f;
@@ -68,32 +70,40 @@ const MemoBox = styled.div`
   }
 `;
 
-const LogoutBtn = styled.button`
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
-  color: #ef709d;
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 700;
-`;
-
-const ToDos = () => {
+const CookieToDos = () => {
   const [text, setText] = useState<string>("");
-  const [memo, setMemo] = useState<memoTypes[]>([]);
+  const [memo, setMemo] = useState<string[]>([]);
   const [size, setSize] = useState<number>(0);
 
   const router = useRouter();
 
-  const logout = () => {
-    router.push("/cookies/login");
+  useEffect(() => {
+    const memoList = getCookiesTodos();
+
+    if (!!memoList) {
+      setMemo(memoList.split(","));
+    }
+  }, []);
+
+  const addCookieMemo = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newMemo = [text, ...memo];
+    setMemo(newMemo);
+    setCookiesTodos(newMemo);
+    setText("");
+  };
+
+  const deleteCookieMemo = (idx: number) => {
+    let newMemo = [...memo];
+    newMemo.splice(idx, 1);
+    setMemo(newMemo);
+    setCookiesTodos(newMemo);
   };
 
   return (
     <section>
-      <h1>Cookies</h1>
-      <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
-      <MemoInputForm>
+      <h1>Cookie ToDos</h1>
+      <MemoInputForm onSubmit={addCookieMemo}>
         <input
           value={text}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -104,9 +114,15 @@ const ToDos = () => {
       </MemoInputForm>
       <MemoBox>
         {memo.map((data, idx) => (
-          <div key={data.id}>
-            <label>{data.contents}</label>
-            <button onClick={() => {}}>🗑</button>
+          <div key={idx}>
+            <label>{data}</label>
+            <button
+              onClick={() => {
+                deleteCookieMemo(idx);
+              }}
+            >
+              🗑
+            </button>
           </div>
         ))}
       </MemoBox>
@@ -114,4 +130,4 @@ const ToDos = () => {
   );
 };
 
-export default ToDos;
+export default CookieToDos;

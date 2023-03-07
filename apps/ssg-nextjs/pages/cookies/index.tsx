@@ -11,6 +11,7 @@ const Cookies = () => {
   return (
     <section>
       <h1>Cookies</h1>
+      <Link href="/cookies/cookieTodos">cookieTodos</Link>
       <Link href="/cookies/todos">Todos</Link>
       <Link href="/cookies/login">Login</Link>
       <Link href="/">Back to main</Link>

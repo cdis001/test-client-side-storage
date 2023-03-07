@@ -21,11 +21,13 @@ export default function Home() {
   const [remainingByte, setRemainingByte] = useState<number>(0);
   const showStorageEstimate = async () => {
     if (navigator.storage && navigator.storage.estimate) {
-      const quota = await navigator.storage.estimate();
+      const quota = await navigator!.storage!.estimate()!;
 
-      setUsage(quota.usage);
-      setPercentageUsed((quota.usage / quota.quota) * 100);
-      setRemainingByte(quota.quota - quota.usage);
+      if (!!quota) {
+        setUsage(quota.usage);
+        setPercentageUsed((quota.usage / quota.quota) * 100);
+        setRemainingByte(quota.quota - quota.usage);
+      }
     }
   };
   useEffect(() => {
@@ -41,7 +43,6 @@ export default function Home() {
       </Head>
       <section>
         <h1>Client Side Storage</h1>
-        <Button title={"TEST"} />
         <CheckVolumDiv>
           <span>사용 중인 용량: {usage}</span>
           <span>사용할 수 있는 용량: {percentageUsed}%</span>
