@@ -1,2 +1,2 @@
-export { loginType } from "./login";
-export { memoTypes } from "./memo";
+export type { loginType } from "./login";
+export type { memoTypes } from "./memo";

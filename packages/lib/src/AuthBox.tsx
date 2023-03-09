@@ -15,6 +15,6 @@ interface AuthBoxProps {
   children?: ReactNode;
 }
 
-export const AuthBox = ({ children }: AuthButtonListProps) => {
+export const AuthBox = ({ children }: AuthBoxProps) => {
   return <AuthBoxStyle>{children}</AuthBoxStyle>;
 };

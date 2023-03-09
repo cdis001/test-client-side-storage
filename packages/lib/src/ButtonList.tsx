@@ -11,6 +11,6 @@ interface ButtonListProps {
   children?: ReactNode;
 }
 
-export const ButtonList = ({ children }: AuthButtonListProps) => {
+export const ButtonList = ({ children }: ButtonListProps) => {
   return <ButtonListStyle>{children}</ButtonListStyle>;
 };

@@ -28,15 +28,18 @@ type InputBoxProps = {
 
 export const InputBox = ({
   placeholder,
-  value,
-  setValue,
+  value = "",
+  setValue = () => null,
   type,
 }: InputBoxProps) => {
   return (
     <InputStyle
       placeholder={placeholder}
       value={value}
-      onChange={(e: FormEvent<HTMLInputElement>) => setValue(e.target.value)}
+      onChange={(e: FormEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement;
+        setValue(target.value);
+      }}
       type={type}
     />
   );

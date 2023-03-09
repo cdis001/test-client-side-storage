@@ -19,6 +19,6 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = ({ title, onClick }) => {
+export const Button = ({ title, onClick }: ButtonProps) => {
   return <ButtonStyle onClick={onClick}>{title}</ButtonStyle>;
 };

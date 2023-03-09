@@ -20,13 +20,13 @@ export default function Home() {
   const [percentageUsed, setPercentageUsed] = useState<number>(0);
   const [remainingByte, setRemainingByte] = useState<number>(0);
   const showStorageEstimate = async () => {
-    if (navigator.storage && navigator.storage.estimate) {
+    if (!!navigator.storage && !!navigator.storage.estimate) {
       const quota = await navigator!.storage!.estimate()!;
 
       if (!!quota) {
-        setUsage(quota.usage);
-        setPercentageUsed((quota.usage / quota.quota) * 100);
-        setRemainingByte(quota.quota - quota.usage);
+        setUsage(quota.usage!);
+        setPercentageUsed((quota.usage! / quota.quota!) * 100);
+        setRemainingByte(quota.quota! - quota.usage!);
       }
     }
   };
