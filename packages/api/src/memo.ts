@@ -20,35 +20,58 @@ export const getMemo = async () => {
   return { data, status };
 };
 
-export const getCookieMemo = async () => {
+export const getCookieMemo = async (token: string) => {
   const { data, status } = await axios.get(
-    "http://localhost:3000/memo/cookie/user"
+    "http://localhost:3000/memo/cookie/user",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
 
   return { data, status };
 };
 
-export const createMemo = async (memo: memoTypes) => {
-  const { data, status } = await axios.post("http://localhost:3000/memo", {
-    ...memo,
-    userId,
-  });
+export const createMemo = async (memo: memoTypes, token: string) => {
+  const { data, status } = await axios.post(
+    "http://localhost:3000/memo",
+    {
+      ...memo,
+      userId,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   return { data, status };
 };
 
-export const updateMemo = async (memo: memoTypes) => {
+export const updateMemo = async (memo: memoTypes, token: string) => {
   const { data, status } = await axios.patch(
     "http://localhost:3000/memo/" + memo.id,
-    { ...memo, userId }
+    { ...memo, userId },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
 
   return { data, status };
 };
 
-export const deleteMemo = async (memoId: number) => {
+export const deleteMemo = async (memoId: number, token: string) => {
   const { data, status } = await axios.delete(
-    "http://localhost:3000/memo/" + memoId
+    "http://localhost:3000/memo/" + memoId,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
 
   return { data, status };

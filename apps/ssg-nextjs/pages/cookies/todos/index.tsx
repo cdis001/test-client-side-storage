@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { getCookie, setCookie, deleteCookie, clearCookies } from "@test/api";
+import {
+  getCookie,
+  setCookie,
+  deleteCookie,
+  clearCookies,
+  getCookieMemo,
+  createMemo,
+  deleteMemo,
+} from "@test/api";
 import { memoTypes } from "@test/types";
 
 const MemoInputForm = styled.form`
@@ -85,15 +93,52 @@ const ToDos = () => {
 
   const router = useRouter();
 
+  const token = getCookie("token");
+
   const logout = () => {
     router.push("/cookies/login");
   };
+
+  const getMemo = async () => {
+    const { data, status } = await getCookieMemo(token);
+
+    if (status === 200) {
+      setMemo(data);
+    }
+  };
+
+  const onCreateMemo = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { data, status } = await createMemo({ contents: text }, token);
+    if (status === 201) {
+      const newMemo = [...memo, { id: data.id, contents: data.contents }];
+      setMemo(newMemo);
+      setText("");
+    }
+  };
+
+  const onDeleteMemo = async (id: number, idx: number) => {
+    const { data, status } = await deleteMemo(id, token);
+    if (status === 200) {
+      let newMemo = [...memo];
+      newMemo.splice(idx, 1);
+      setMemo(newMemo);
+    }
+  };
+
+  useEffect(() => {
+    if (!!!token) {
+      router.push("/cookies/login");
+    } else {
+      getMemo();
+    }
+  }, []);
 
   return (
     <section>
       <h1>Cookies</h1>
       <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
-      <MemoInputForm>
+      <MemoInputForm onSubmit={onCreateMemo} type="submit">
         <input
           value={text}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -106,7 +151,13 @@ const ToDos = () => {
         {memo.map((data, idx) => (
           <div key={data.id}>
             <label>{data.contents}</label>
-            <button onClick={() => {}}>🗑</button>
+            <button
+              onClick={() => {
+                onDeleteMemo(data.id, idx);
+              }}
+            >
+              🗑
+            </button>
           </div>
         ))}
       </MemoBox>

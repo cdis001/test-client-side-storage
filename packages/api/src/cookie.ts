@@ -16,11 +16,13 @@ export const setCookie = (
 
 export const getCookie = (cookieName: string) => {
   var cookieValue = null;
-  if (document.cookie) {
-    const array = document.cookie.split(escape(cookieName) + "=");
-    if (array.length >= 2) {
-      const arraySub = array[1].split(";");
-      cookieValue = unescape(arraySub[0]);
+  if (process.browser) {
+    if (!!document.cookie) {
+      const array = document.cookie.split(escape(cookieName) + "=");
+      if (array.length >= 2) {
+        const arraySub = array[1].split(";");
+        cookieValue = unescape(arraySub[0]);
+      }
     }
   }
   return cookieValue;
