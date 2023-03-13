@@ -9,9 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@test/api": "workspace:^",
+    "@test/lib": "workspace:^",
+    "@test/types": "workspace:^",
     "axios": "^1.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
     "react-router-dom": "^6.8.0",
     "styled-components": "^5.3.6"
   },

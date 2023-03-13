@@ -16,6 +16,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
+        "name": "csr-react",\
+        "reference": "workspace:apps/csr-react"\
+      },\
+      {\
         "name": "ssg-nextjs",\
         "reference": "workspace:apps/ssg-nextjs"\
       },\
@@ -38,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@test/api", ["workspace:packages/api"]],\
       ["@test/lib", ["workspace:packages/lib"]],\
       ["@test/types", ["workspace:packages/types"]],\
+      ["csr-react", ["workspace:apps/csr-react"]],\
       ["ssg-nextjs", ["workspace:apps/ssg-nextjs"]],\
       ["test-client-side-storage", ["workspace:."]]\
     ],\
@@ -2756,6 +2761,204 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@esbuild/android-arm", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-android-arm-npm-0.16.17-7506d3fa7b/node_modules/@esbuild/android-arm/",\
+          "packageDependencies": [\
+            ["@esbuild/android-arm", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/android-arm64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-android-arm64-npm-0.16.17-e75e6f6f91/node_modules/@esbuild/android-arm64/",\
+          "packageDependencies": [\
+            ["@esbuild/android-arm64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/android-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-android-x64-npm-0.16.17-0e9a1f53d4/node_modules/@esbuild/android-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/android-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/darwin-arm64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-darwin-arm64-npm-0.16.17-96c7a38090/node_modules/@esbuild/darwin-arm64/",\
+          "packageDependencies": [\
+            ["@esbuild/darwin-arm64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/darwin-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-darwin-x64-npm-0.16.17-5d19b3753f/node_modules/@esbuild/darwin-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/darwin-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/freebsd-arm64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-freebsd-arm64-npm-0.16.17-a81b3beba2/node_modules/@esbuild/freebsd-arm64/",\
+          "packageDependencies": [\
+            ["@esbuild/freebsd-arm64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/freebsd-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-freebsd-x64-npm-0.16.17-ec9cabd41c/node_modules/@esbuild/freebsd-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/freebsd-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-arm", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-arm-npm-0.16.17-324f103417/node_modules/@esbuild/linux-arm/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-arm", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-arm64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-arm64-npm-0.16.17-2d25b25b7e/node_modules/@esbuild/linux-arm64/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-arm64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-ia32", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-ia32-npm-0.16.17-8cd112faa3/node_modules/@esbuild/linux-ia32/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-ia32", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-loong64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-loong64-npm-0.16.17-c9456d6097/node_modules/@esbuild/linux-loong64/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-loong64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-mips64el", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-mips64el-npm-0.16.17-a5d66047f4/node_modules/@esbuild/linux-mips64el/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-mips64el", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-ppc64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-ppc64-npm-0.16.17-c51a9cb8f4/node_modules/@esbuild/linux-ppc64/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-ppc64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-riscv64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-riscv64-npm-0.16.17-c9f5d02180/node_modules/@esbuild/linux-riscv64/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-riscv64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-s390x", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-s390x-npm-0.16.17-0d7018c8b7/node_modules/@esbuild/linux-s390x/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-s390x", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/linux-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-linux-x64-npm-0.16.17-05d9fa63ae/node_modules/@esbuild/linux-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/linux-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/netbsd-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-netbsd-x64-npm-0.16.17-db210e96d0/node_modules/@esbuild/netbsd-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/netbsd-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/openbsd-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-openbsd-x64-npm-0.16.17-7f840a38f8/node_modules/@esbuild/openbsd-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/openbsd-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/sunos-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-sunos-x64-npm-0.16.17-03a541803e/node_modules/@esbuild/sunos-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/sunos-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/win32-arm64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-win32-arm64-npm-0.16.17-a63062e4ac/node_modules/@esbuild/win32-arm64/",\
+          "packageDependencies": [\
+            ["@esbuild/win32-arm64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/win32-ia32", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-win32-ia32-npm-0.16.17-7e7ed04204/node_modules/@esbuild/win32-ia32/",\
+          "packageDependencies": [\
+            ["@esbuild/win32-ia32", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@esbuild/win32-x64", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/@esbuild-win32-x64-npm-0.16.17-25af261435/node_modules/@esbuild/win32-x64/",\
+          "packageDependencies": [\
+            ["@esbuild/win32-x64", "npm:0.16.17"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@eslint/eslintrc", [\
         ["npm:1.4.1", {\
           "packageLocation": "./.yarn/cache/@eslint-eslintrc-npm-1.4.1-007f670de2-cd3e5a8683.zip/node_modules/@eslint/eslintrc/",\
@@ -3096,6 +3299,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@remix-run/router", [\
+        ["npm:1.4.0", {\
+          "packageLocation": "./.yarn/cache/@remix-run-router-npm-1.4.0-0d516afd34-707dce35a2.zip/node_modules/@remix-run/router/",\
+          "packageDependencies": [\
+            ["@remix-run/router", "npm:1.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@rollup/plugin-alias", [\
         ["npm:3.1.9", {\
           "packageLocation": "./.yarn/cache/@rollup-plugin-alias-npm-3.1.9-f58d88ad2a-cefae9dfb7.zip/node_modules/@rollup/plugin-alias/",\
@@ -3279,6 +3491,115 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["json5", "npm:2.2.3"],\
             ["magic-string", "npm:0.25.9"],\
             ["string.prototype.matchall", "npm:4.0.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-npm-1.3.39-abf55cbf4b/node_modules/@swc/core/",\
+          "packageDependencies": [\
+            ["@swc/core", "npm:1.3.39"],\
+            ["@swc/core-darwin-arm64", "npm:1.3.39"],\
+            ["@swc/core-darwin-x64", "npm:1.3.39"],\
+            ["@swc/core-linux-arm-gnueabihf", "npm:1.3.39"],\
+            ["@swc/core-linux-arm64-gnu", "npm:1.3.39"],\
+            ["@swc/core-linux-arm64-musl", "npm:1.3.39"],\
+            ["@swc/core-linux-x64-gnu", "npm:1.3.39"],\
+            ["@swc/core-linux-x64-musl", "npm:1.3.39"],\
+            ["@swc/core-win32-arm64-msvc", "npm:1.3.39"],\
+            ["@swc/core-win32-ia32-msvc", "npm:1.3.39"],\
+            ["@swc/core-win32-x64-msvc", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-darwin-arm64", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-darwin-arm64-npm-1.3.39-1ccda892ab/node_modules/@swc/core-darwin-arm64/",\
+          "packageDependencies": [\
+            ["@swc/core-darwin-arm64", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-darwin-x64", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-darwin-x64-npm-1.3.39-f1f2810191/node_modules/@swc/core-darwin-x64/",\
+          "packageDependencies": [\
+            ["@swc/core-darwin-x64", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-linux-arm-gnueabihf", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm-gnueabihf-npm-1.3.39-e0d2e56892/node_modules/@swc/core-linux-arm-gnueabihf/",\
+          "packageDependencies": [\
+            ["@swc/core-linux-arm-gnueabihf", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-linux-arm64-gnu", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm64-gnu-npm-1.3.39-96f41d0c42/node_modules/@swc/core-linux-arm64-gnu/",\
+          "packageDependencies": [\
+            ["@swc/core-linux-arm64-gnu", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-linux-arm64-musl", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm64-musl-npm-1.3.39-9d02ea5d93/node_modules/@swc/core-linux-arm64-musl/",\
+          "packageDependencies": [\
+            ["@swc/core-linux-arm64-musl", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-linux-x64-gnu", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-linux-x64-gnu-npm-1.3.39-77b162e867/node_modules/@swc/core-linux-x64-gnu/",\
+          "packageDependencies": [\
+            ["@swc/core-linux-x64-gnu", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-linux-x64-musl", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-linux-x64-musl-npm-1.3.39-f48ac7b1ee/node_modules/@swc/core-linux-x64-musl/",\
+          "packageDependencies": [\
+            ["@swc/core-linux-x64-musl", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-win32-arm64-msvc", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-win32-arm64-msvc-npm-1.3.39-ec782f9821/node_modules/@swc/core-win32-arm64-msvc/",\
+          "packageDependencies": [\
+            ["@swc/core-win32-arm64-msvc", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-win32-ia32-msvc", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-win32-ia32-msvc-npm-1.3.39-df6184b8eb/node_modules/@swc/core-win32-ia32-msvc/",\
+          "packageDependencies": [\
+            ["@swc/core-win32-ia32-msvc", "npm:1.3.39"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@swc/core-win32-x64-msvc", [\
+        ["npm:1.3.39", {\
+          "packageLocation": "./.yarn/unplugged/@swc-core-win32-x64-msvc-npm-1.3.39-8fef28caa3/node_modules/@swc/core-win32-x64-msvc/",\
+          "packageDependencies": [\
+            ["@swc/core-win32-x64-msvc", "npm:1.3.39"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3590,6 +3911,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/visitor-keys", "npm:5.53.0"],\
             ["@typescript-eslint/types", "npm:5.53.0"],\
             ["eslint-visitor-keys", "npm:3.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@vitejs/plugin-react-swc", [\
+        ["npm:3.2.0", {\
+          "packageLocation": "./.yarn/cache/@vitejs-plugin-react-swc-npm-3.2.0-2b39c64989-9df519fee5.zip/node_modules/@vitejs/plugin-react-swc/",\
+          "packageDependencies": [\
+            ["@vitejs/plugin-react-swc", "npm:3.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:3.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@vitejs-plugin-react-swc-virtual-4c03fced1c/0/cache/@vitejs-plugin-react-swc-npm-3.2.0-2b39c64989-9df519fee5.zip/node_modules/@vitejs/plugin-react-swc/",\
+          "packageDependencies": [\
+            ["@vitejs/plugin-react-swc", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:3.2.0"],\
+            ["@swc/core", "npm:1.3.39"],\
+            ["@types/vite", null],\
+            ["vite", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:4.1.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/vite",\
+            "vite"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4019,24 +4363,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:265bba42a04e347f2425f9eee0d9040103c4b106a5552e6ee7923138893e9a17cacc146e9334302a2800b764350773bad2d3f35416bf3a4f11bb99ab26a45a2f#npm:2.0.7", {\
-          "packageLocation": "./.yarn/__virtual__/babel-plugin-styled-components-virtual-63c8ed2a1d/0/cache/babel-plugin-styled-components-npm-2.0.7-543710bd48-80b06b10db.zip/node_modules/babel-plugin-styled-components/",\
-          "packageDependencies": [\
-            ["babel-plugin-styled-components", "virtual:265bba42a04e347f2425f9eee0d9040103c4b106a5552e6ee7923138893e9a17cacc146e9334302a2800b764350773bad2d3f35416bf3a4f11bb99ab26a45a2f#npm:2.0.7"],\
-            ["@babel/helper-annotate-as-pure", "npm:7.18.6"],\
-            ["@babel/helper-module-imports", "npm:7.18.6"],\
-            ["@types/styled-components", null],\
-            ["babel-plugin-syntax-jsx", "npm:6.18.0"],\
-            ["lodash", "npm:4.17.21"],\
-            ["picomatch", "npm:2.3.1"],\
-            ["styled-components", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:5.3.6"]\
-          ],\
-          "packagePeers": [\
-            "@types/styled-components",\
-            "styled-components"\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["virtual:7c2ab1cea7455458e952825b86f226a8e18771a5a10836955ecfe826dba3f8d8ebb681c11c0e4c22d70c0a3f253a1cf73e9901fbd17d92b119082fef76b6882a#npm:2.0.7", {\
           "packageLocation": "./.yarn/__virtual__/babel-plugin-styled-components-virtual-3db56a0a9b/0/cache/babel-plugin-styled-components-npm-2.0.7-543710bd48-80b06b10db.zip/node_modules/babel-plugin-styled-components/",\
           "packageDependencies": [\
@@ -4065,7 +4391,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-plugin-syntax-jsx", "npm:6.18.0"],\
             ["lodash", "npm:4.17.21"],\
             ["picomatch", "npm:2.3.1"],\
-            ["styled-components", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:5.3.6"]\
+            ["styled-components", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:5.3.6"]\
+          ],\
+          "packagePeers": [\
+            "@types/styled-components",\
+            "styled-components"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:e431641c0588c5a96b3cf975a4c707e75e4048ac1e19637f61c8848ba86bb03984fa5e1f5e182b2326c5af5c231eeed7b9d75a020ba9523be99748e1621c3408#npm:2.0.7", {\
+          "packageLocation": "./.yarn/__virtual__/babel-plugin-styled-components-virtual-aa0c5e2e60/0/cache/babel-plugin-styled-components-npm-2.0.7-543710bd48-80b06b10db.zip/node_modules/babel-plugin-styled-components/",\
+          "packageDependencies": [\
+            ["babel-plugin-styled-components", "virtual:e431641c0588c5a96b3cf975a4c707e75e4048ac1e19637f61c8848ba86bb03984fa5e1f5e182b2326c5af5c231eeed7b9d75a020ba9523be99748e1621c3408#npm:2.0.7"],\
+            ["@babel/helper-annotate-as-pure", "npm:7.18.6"],\
+            ["@babel/helper-module-imports", "npm:7.18.6"],\
+            ["@types/styled-components", null],\
+            ["babel-plugin-syntax-jsx", "npm:6.18.0"],\
+            ["lodash", "npm:4.17.21"],\
+            ["picomatch", "npm:2.3.1"],\
+            ["styled-components", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:5.3.6"]\
           ],\
           "packagePeers": [\
             "@types/styled-components",\
@@ -4530,6 +4874,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["which", "npm:2.0.2"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["csr-react", [\
+        ["workspace:apps/csr-react", {\
+          "packageLocation": "./apps/csr-react/",\
+          "packageDependencies": [\
+            ["csr-react", "workspace:apps/csr-react"],\
+            ["@test/api", "workspace:packages/api"],\
+            ["@test/lib", "workspace:packages/lib"],\
+            ["@test/types", "workspace:packages/types"],\
+            ["@types/react", "npm:18.0.28"],\
+            ["@types/react-dom", "npm:18.0.11"],\
+            ["@vitejs/plugin-react-swc", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:3.2.0"],\
+            ["axios", "npm:1.3.4"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0"],\
+            ["react-is", "npm:18.2.0"],\
+            ["react-router-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:6.9.0"],\
+            ["styled-components", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:5.3.6"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"],\
+            ["vite", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:4.1.4"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["css-color-keywords", [\
@@ -5149,6 +5516,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-callable", "npm:1.2.7"],\
             ["is-date-object", "npm:1.0.5"],\
             ["is-symbol", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["esbuild", [\
+        ["npm:0.16.17", {\
+          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.16.17-89fa4ab0dd/node_modules/esbuild/",\
+          "packageDependencies": [\
+            ["esbuild", "npm:0.16.17"],\
+            ["@esbuild/android-arm", "npm:0.16.17"],\
+            ["@esbuild/android-arm64", "npm:0.16.17"],\
+            ["@esbuild/android-x64", "npm:0.16.17"],\
+            ["@esbuild/darwin-arm64", "npm:0.16.17"],\
+            ["@esbuild/darwin-x64", "npm:0.16.17"],\
+            ["@esbuild/freebsd-arm64", "npm:0.16.17"],\
+            ["@esbuild/freebsd-x64", "npm:0.16.17"],\
+            ["@esbuild/linux-arm", "npm:0.16.17"],\
+            ["@esbuild/linux-arm64", "npm:0.16.17"],\
+            ["@esbuild/linux-ia32", "npm:0.16.17"],\
+            ["@esbuild/linux-loong64", "npm:0.16.17"],\
+            ["@esbuild/linux-mips64el", "npm:0.16.17"],\
+            ["@esbuild/linux-ppc64", "npm:0.16.17"],\
+            ["@esbuild/linux-riscv64", "npm:0.16.17"],\
+            ["@esbuild/linux-s390x", "npm:0.16.17"],\
+            ["@esbuild/linux-x64", "npm:0.16.17"],\
+            ["@esbuild/netbsd-x64", "npm:0.16.17"],\
+            ["@esbuild/openbsd-x64", "npm:0.16.17"],\
+            ["@esbuild/sunos-x64", "npm:0.16.17"],\
+            ["@esbuild/win32-arm64", "npm:0.16.17"],\
+            ["@esbuild/win32-ia32", "npm:0.16.17"],\
+            ["@esbuild/win32-x64", "npm:0.16.17"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7443,7 +7841,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-sass", null],\
             ["postcss", "npm:8.4.14"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:18.2.0"],\
+            ["react-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0"],\
             ["sass", null],\
             ["styled-jsx", "virtual:9c4cd0c4772b5a008ece65088946aaec3aba0a668954fc94218089607fc1674ba4cda304bb1f0115e006fb089742d9c0e23242cf486211ae2e3d63dafc116834#npm:5.1.1"]\
           ],\
@@ -8862,10 +9260,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:18.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-5cd5c55995/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
+        ["virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-703d353625/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
           "packageDependencies": [\
-            ["react-dom", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:18.2.0"],\
+            ["react-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0"],\
             ["@types/react", "npm:18.0.28"],\
             ["loose-envify", "npm:1.4.0"],\
             ["react", "npm:18.2.0"],\
@@ -8890,6 +9288,57 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-is-npm-18.2.0-0cc5edb910-e72d0ba81b.zip/node_modules/react-is/",\
           "packageDependencies": [\
             ["react-is", "npm:18.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-router", [\
+        ["npm:6.9.0", {\
+          "packageLocation": "./.yarn/cache/react-router-npm-6.9.0-0f1035743a-b2a5f42e04.zip/node_modules/react-router/",\
+          "packageDependencies": [\
+            ["react-router", "npm:6.9.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:d67d7c1a3a93258854108c201184d3ed5080293b404df0998b83a2804b6657fe19ca4d711e325753156f9d36a9262ce44a6b98bbeeccd3c17d01ce96f688d21a#npm:6.9.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-router-virtual-85b0ee9a5c/0/cache/react-router-npm-6.9.0-0f1035743a-b2a5f42e04.zip/node_modules/react-router/",\
+          "packageDependencies": [\
+            ["react-router", "virtual:d67d7c1a3a93258854108c201184d3ed5080293b404df0998b83a2804b6657fe19ca4d711e325753156f9d36a9262ce44a6b98bbeeccd3c17d01ce96f688d21a#npm:6.9.0"],\
+            ["@remix-run/router", "npm:1.4.0"],\
+            ["@types/react", "npm:18.0.28"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-router-dom", [\
+        ["npm:6.9.0", {\
+          "packageLocation": "./.yarn/cache/react-router-dom-npm-6.9.0-4aea6458fc-4d593491ab.zip/node_modules/react-router-dom/",\
+          "packageDependencies": [\
+            ["react-router-dom", "npm:6.9.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:6.9.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-router-dom-virtual-d67d7c1a3a/0/cache/react-router-dom-npm-6.9.0-4aea6458fc-4d593491ab.zip/node_modules/react-router-dom/",\
+          "packageDependencies": [\
+            ["react-router-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:6.9.0"],\
+            ["@remix-run/router", "npm:1.4.0"],\
+            ["@types/react", "npm:18.0.28"],\
+            ["@types/react-dom", "npm:18.0.11"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0"],\
+            ["react-router", "virtual:d67d7c1a3a93258854108c201184d3ed5080293b404df0998b83a2804b6657fe19ca4d711e325753156f9d36a9262ce44a6b98bbeeccd3c17d01ce96f688d21a#npm:6.9.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9070,6 +9519,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/rollup-npm-2.79.1-94e707a9a3-6a2bf167b3.zip/node_modules/rollup/",\
           "packageDependencies": [\
             ["rollup", "npm:2.79.1"],\
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.19.1", {\
+          "packageLocation": "./.yarn/cache/rollup-npm-3.19.1-f25bd0d605-f78198c6de.zip/node_modules/rollup/",\
+          "packageDependencies": [\
+            ["rollup", "npm:3.19.1"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"]\
           ],\
           "linkType": "HARD"\
@@ -9488,9 +9945,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:13.1.6"],\
             ["next-transpile-modules", "npm:10.0.0"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:18.2.0"],\
+            ["react-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
-            ["styled-components", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:5.3.6"],\
+            ["styled-components", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:5.3.6"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
@@ -9644,7 +10101,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],\
       ["styled-components", [\
         ["npm:5.3.6", {\
-          "packageLocation": "./.yarn/unplugged/styled-components-virtual-265bba42a0/node_modules/styled-components/",\
+          "packageLocation": "./.yarn/unplugged/styled-components-virtual-e431641c05/node_modules/styled-components/",\
           "packageDependencies": [\
             ["styled-components", "npm:5.3.6"]\
           ],\
@@ -9681,10 +10138,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:5.3.6", {\
-          "packageLocation": "./.yarn/unplugged/styled-components-virtual-265bba42a0/node_modules/styled-components/",\
+        ["virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:5.3.6", {\
+          "packageLocation": "./.yarn/unplugged/styled-components-virtual-e431641c05/node_modules/styled-components/",\
           "packageDependencies": [\
-            ["styled-components", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:5.3.6"],\
+            ["styled-components", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:5.3.6"],\
             ["@babel/helper-module-imports", "npm:7.18.6"],\
             ["@babel/traverse", "npm:7.21.0"],\
             ["@emotion/is-prop-valid", "npm:1.2.0"],\
@@ -9693,11 +10150,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@types/react-is", null],\
-            ["babel-plugin-styled-components", "virtual:265bba42a04e347f2425f9eee0d9040103c4b106a5552e6ee7923138893e9a17cacc146e9334302a2800b764350773bad2d3f35416bf3a4f11bb99ab26a45a2f#npm:2.0.7"],\
+            ["babel-plugin-styled-components", "virtual:e431641c0588c5a96b3cf975a4c707e75e4048ac1e19637f61c8848ba86bb03984fa5e1f5e182b2326c5af5c231eeed7b9d75a020ba9523be99748e1621c3408#npm:2.0.7"],\
             ["css-to-react-native", "npm:3.2.0"],\
             ["hoist-non-react-statics", "npm:3.3.2"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:a578098558e36776e074170a0a1ba35cd3ef12f3abda31fd3770bc7e21c8015657e2bfcd9683ee44ebc442d0be21998586df81199b55b0295cea3fd9c4de1203#npm:18.2.0"],\
+            ["react-dom", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
             ["shallowequal", "npm:1.1.0"],\
             ["supports-color", "npm:5.5.0"]\
@@ -10142,6 +10599,51 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/util-deprecate-npm-1.0.2-e3fe1a219c-474acf1146.zip/node_modules/util-deprecate/",\
           "packageDependencies": [\
             ["util-deprecate", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["vite", [\
+        ["npm:4.1.4", {\
+          "packageLocation": "./.yarn/cache/vite-npm-4.1.4-224b9db54d-50a9a1f2e2.zip/node_modules/vite/",\
+          "packageDependencies": [\
+            ["vite", "npm:4.1.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:4.1.4", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-512bc93ade/0/cache/vite-npm-4.1.4-224b9db54d-50a9a1f2e2.zip/node_modules/vite/",\
+          "packageDependencies": [\
+            ["vite", "virtual:8abf98c936ac772b13c21aa801c57f539c55cfea9d1bc71dca851d984c99dcdb9dfadad540c9c04f9452a14d1fc8f7852b2b2b86e04c5cf9b0a5860050554db6#npm:4.1.4"],\
+            ["@types/less", null],\
+            ["@types/node", null],\
+            ["@types/sass", null],\
+            ["@types/stylus", null],\
+            ["@types/sugarss", null],\
+            ["@types/terser", null],\
+            ["esbuild", "npm:0.16.17"],\
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
+            ["less", null],\
+            ["postcss", "npm:8.4.21"],\
+            ["resolve", "patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"],\
+            ["rollup", "npm:3.19.1"],\
+            ["sass", null],\
+            ["stylus", null],\
+            ["sugarss", null],\
+            ["terser", null]\
+          ],\
+          "packagePeers": [\
+            "@types/less",\
+            "@types/node",\
+            "@types/sass",\
+            "@types/stylus",\
+            "@types/sugarss",\
+            "@types/terser",\
+            "less",\
+            "sass",\
+            "stylus",\
+            "sugarss",\
+            "terser"\
           ],\
           "linkType": "HARD"\
         }]\

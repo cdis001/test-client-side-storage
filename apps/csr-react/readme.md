@@ -38,3 +38,10 @@
 
   - withCredentials 옵션을 넣으라는데 해당 옵션 넣으면 오류
   - 서버에서 cors 옵션을 설정해줘서 해결! 자세한 내용은 서버쪽 readme에 적음
+
+- monorepo로 추가한 뒤, 커스텀 패키지가 install 되지 않는 문제
+  - 커맨드로 넣어보기 (실패)
+  - package.json에 직접 넣어보기 (실패)
+  - tsconfig.json 수정 (실패)
+  - yarn-lock 파일 삭제하니 해결!
+    - 아마, root project(test-client-side-storage)에서 패키지를 관리해야 하는데, 해당 프로젝트 내부에 yarn-lock 파일이 있어 해당 파일을 기준으로 커스텀 패키지를 찾은 듯
