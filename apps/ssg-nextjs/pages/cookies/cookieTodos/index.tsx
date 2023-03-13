@@ -78,26 +78,41 @@ const CookieToDos = () => {
   const router = useRouter();
 
   useEffect(() => {
+    const start = new Date();
     const memoList = getCookiesTodos();
 
     if (!!memoList) {
       setMemo(memoList.split(","));
     }
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("getMemo time:", time);
   }, []);
 
   const addCookieMemo = (e: React.FormEvent<HTMLFormElement>) => {
+    const start = new Date();
     e.preventDefault();
     const newMemo = [text, ...memo];
     setMemo(newMemo);
     setCookiesTodos(newMemo);
     setText("");
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("addCookieMemo time:", time);
   };
 
   const deleteCookieMemo = (idx: number) => {
+    const start = new Date();
     let newMemo = [...memo];
     newMemo.splice(idx, 1);
     setMemo(newMemo);
     setCookiesTodos(newMemo);
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("deleteCookieMemo time:", time);
   };
 
   return (

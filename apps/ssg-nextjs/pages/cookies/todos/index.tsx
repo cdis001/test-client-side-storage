@@ -100,30 +100,45 @@ const ToDos = () => {
   };
 
   const getMemo = async () => {
+    var start = new Date();
     const { data, status } = await getCookieMemo(token);
 
     if (status === 200) {
       setMemo(data);
     }
+    var end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("getMemo time:", time);
   };
 
   const onCreateMemo = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const start = new Date();
     const { data, status } = await createMemo({ contents: text }, token);
     if (status === 201) {
       const newMemo = [...memo, { id: data.id, contents: data.contents }];
       setMemo(newMemo);
       setText("");
     }
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("onCreateMemo time:", time);
   };
 
   const onDeleteMemo = async (id: number, idx: number) => {
+    const start = new Date();
     const { data, status } = await deleteMemo(id, token);
     if (status === 200) {
       let newMemo = [...memo];
       newMemo.splice(idx, 1);
       setMemo(newMemo);
     }
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("onDeleteMemo time:", time);
   };
 
   useEffect(() => {

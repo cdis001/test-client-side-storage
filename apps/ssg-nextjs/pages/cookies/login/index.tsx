@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { setCookie, getCookie } from "@test/api";
+import { setCookie, getCookie, login } from "@test/api";
 import { InputBox, Button, ButtonList, AuthBox } from "@test/lib";
 
 const Login = () => {
@@ -10,7 +10,17 @@ const Login = () => {
   const router = useRouter();
 
   const loginBtn = async () => {
-    router.push("/cookies/todos");
+    const { data, status } = await login({ username, password });
+    if (status === 201) {
+      const exdate = new Date();
+      exdate.setDate(exdate.getDate() + 3);
+      setCookie("token", data.access_token, exdate);
+      setCookie("userId", data.user_id, exdate);
+
+      router.push("/cookies/todos");
+    } else {
+      alert("로그인 실패");
+    }
   };
 
   return (
