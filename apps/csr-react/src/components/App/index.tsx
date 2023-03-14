@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Main from "../../pages/Main";
 import Cookies from "../../pages/Cookies";
 import CookiesToDos from "../../pages/Cookies/ToDos";
+import CookieToDos from "../../pages/Cookies/CookieToDos";
 import CookiesLogin from "../../pages/Cookies/Login";
 import "./App.css";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "cookies/login",
     element: <CookiesLogin />,
+  },
+  {
+    path: "cookies/cookieTodos",
+    element: <CookieToDos />,
   },
 ]);
 

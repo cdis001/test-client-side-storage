@@ -1,3 +1,20 @@
+// import { setCookie, getCookie, deleteCookie } from "@test/api";
+
+export const setCookiesTodos = (memos: string[]) => {
+  const exdate = new Date();
+  exdate.setDate(exdate.getDate() + 3);
+
+  setCookie("memo", memos, exdate);
+};
+
+export const getCookiesTodos = () => {
+  const memoList = getCookie("memo");
+
+  if (!!memoList) {
+    return memoList;
+  }
+};
+
 export const setCookie = (cookieName, cookieValue, cookieExpire) => {
   let cookieText = escape(cookieName) + "=" + escape(cookieValue);
   cookieText += cookieExpire ? "; EXPIRES=" + cookieExpire.toGMTString() : "";

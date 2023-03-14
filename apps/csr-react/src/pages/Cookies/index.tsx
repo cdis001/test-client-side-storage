@@ -18,6 +18,7 @@ const Cookies = () => {
       <h1>Cookies</h1>
       <Link to="/cookies/todos">Todos</Link>
       <Link to="/cookies/login">Login</Link>
+      <Link to="/cookies/cookieTodos">Cookie Todos</Link>
       <Link to="/">Back to main</Link>
     </section>
   );
