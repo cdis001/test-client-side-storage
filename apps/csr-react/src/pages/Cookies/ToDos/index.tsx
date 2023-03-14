@@ -93,35 +93,45 @@ const CookiesToDos = () => {
   const navigate = useNavigate();
 
   const getMemo = async () => {
+    const start = new Date();
     const { data, status } = await getCookieMemo();
-    // console.log(data);
 
     if (status === 200) {
       setMemo(data);
     }
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("getMemo time:", time);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const start = new Date();
     const { data, status } = await createMemo({ contents: text });
-    // console.log(status);
-    // console.log(data);
     if (status === 201) {
       const newMemo = [...memo, { id: data.id, contents: data.contents }];
       setMemo(newMemo);
       setText("");
     }
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("handleSubmit time:", time);
   };
 
   const deleteMemoBtn = async (id: number, idx: number) => {
+    const start = new Date();
     const { data, status } = await deleteMemo(id);
-    // console.log(status);
-    // console.log(data);
     if (status === 200) {
       let newMemo = [...memo];
       newMemo.splice(idx, 1);
       setMemo(newMemo);
     }
+    const end = new Date();
+
+    const time = end.getMilliseconds() - start.getMilliseconds();
+    console.log("deleteMemoBtn time:", time);
   };
 
   const logout = () => {
