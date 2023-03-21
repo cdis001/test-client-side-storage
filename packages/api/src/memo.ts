@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { memoTypes } from "../../types/memo";
+import { memoTypes } from "@test/types";
 import { getCookie } from "./cookie";
 
 const token = getCookie("token");

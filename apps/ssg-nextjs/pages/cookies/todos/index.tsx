@@ -93,7 +93,7 @@ const ToDos = () => {
 
   const router = useRouter();
 
-  const token = getCookie("token");
+  const token = getCookie("token") || "";
 
   const logout = () => {
     router.push("/cookies/login");
@@ -117,7 +117,10 @@ const ToDos = () => {
     const start = new Date();
     const { data, status } = await createMemo({ contents: text }, token);
     if (status === 201) {
-      const newMemo = [...memo, { id: data.id, contents: data.contents }];
+      const newMemo: memoTypes[] = [
+        ...memo,
+        { id: data.id, contents: data.contents },
+      ];
       setMemo(newMemo);
       setText("");
     }
@@ -153,7 +156,7 @@ const ToDos = () => {
     <section>
       <h1>Cookies</h1>
       <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
-      <MemoInputForm onSubmit={onCreateMemo} type="submit">
+      <MemoInputForm onSubmit={onCreateMemo}>
         <input
           value={text}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -168,7 +171,7 @@ const ToDos = () => {
             <label>{data.contents}</label>
             <button
               onClick={() => {
-                onDeleteMemo(data.id, idx);
+                onDeleteMemo(data.id!, idx);
               }}
             >
               🗑

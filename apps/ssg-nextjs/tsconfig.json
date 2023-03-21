@@ -17,6 +17,7 @@
     "incremental": true,
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "types"],
+    "types": ["node"],
     "paths": {
       "@/*": ["./*"]
     }
