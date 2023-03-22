@@ -31,7 +31,9 @@ const InputBox = ({ placeholder, value, setValue, type }: InputBoxProps) => {
     <InputStyle
       placeholder={placeholder}
       value={value}
-      onChange={(e: FormEvent<HTMLInputElement>) => setValue(e.target.value)}
+      onChange={(e: FormEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement;
+      }}
       type={type}
     />
   );

@@ -11,7 +11,7 @@ interface ButtonListProps {
   children?: ReactNode;
 }
 
-const ButtonList = ({ children }: AuthButtonListProps) => {
+const ButtonList = ({ children }: ButtonListProps) => {
   return <ButtonListStyle>{children}</ButtonListStyle>;
 };
 

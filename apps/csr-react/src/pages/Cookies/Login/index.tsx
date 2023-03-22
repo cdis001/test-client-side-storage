@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { login } from "../../../api/login";
-import { setCookie, getCookie } from "../../../api/cookie";
+import { setCookie, getCookie } from "@test/api";
 
 import InputBox from "../../../components/InputBox";
 import Button from "../../../components/Button";

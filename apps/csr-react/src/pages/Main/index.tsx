@@ -17,12 +17,14 @@ const Main = () => {
   const [percentageUsed, setPercentageUsed] = useState<number>(0);
   const [remainingByte, setRemainingByte] = useState<number>(0);
   const showStorageEstimate = async () => {
-    if (navigator.storage && navigator.storage.estimate) {
-      const quota = await navigator.storage.estimate();
+    if (!!navigator.storage && !!navigator.storage.estimate) {
+      const quota = await navigator!.storage!.estimate()!;
 
-      setUsage(quota.usage);
-      setPercentageUsed((quota.usage / quota.quota) * 100);
-      setRemainingByte(quota.quota - quota.usage);
+      if (!!quota) {
+        setUsage(quota.usage!);
+        setPercentageUsed((quota.usage! / quota.quota!) * 100);
+        setRemainingByte(quota.quota! - quota.usage!);
+      }
     }
   };
   useEffect(() => {

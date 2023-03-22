@@ -2,13 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import { memoTypes } from "../../../types/memo";
-import {
-  getCookie,
-  setCookie,
-  deleteCookie,
-  clearCookies,
-} from "../../../api/cookie";
+import { memoTypes } from "@test/types";
+import { getCookie, setCookie, deleteCookie, clearCookies } from "@test/api";
 import { getCookieMemo, createMemo, deleteMemo } from "../../../api/memo";
 
 const MemoInputForm = styled.form`
@@ -166,7 +161,7 @@ const CookiesToDos = () => {
         {memo.map((data, idx) => (
           <div key={data.id}>
             <label>{data.contents}</label>
-            <button onClick={() => deleteMemoBtn(data.id, idx)}>🗑</button>
+            <button onClick={() => deleteMemoBtn(data.id!, idx)}>🗑</button>
           </div>
         ))}
       </MemoBox>

@@ -19,7 +19,7 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ title, onClick }) => {
+const Button = ({ title, onClick }: ButtonProps) => {
   return <ButtonStyle onClick={onClick}>{title}</ButtonStyle>;
 };
 

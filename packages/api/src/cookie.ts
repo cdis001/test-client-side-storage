@@ -16,7 +16,8 @@ export const setCookie = (
 
 export const getCookie = (cookieName: string) => {
   var cookieValue = null;
-  if (process.browser) {
+  const isBrowser = typeof window !== "undefined";
+  if (isBrowser) {
     if (!!document.cookie) {
       const array = document.cookie.split(escape(cookieName) + "=");
       if (array.length >= 2) {
