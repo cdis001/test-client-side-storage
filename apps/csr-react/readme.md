@@ -8,6 +8,17 @@
    - 우선 쿠키에 값을 저장하는게 string으로만 이루어져 있어 좀.. 보기 나쁨
    - 직렬화, 역직렬화를 해줘야 하지만 귀찮아서 패스
    - Last applied commit id: 5f6ab646a840eb007f07b4c7375ef2abc3d1316e
+   - Cookie size: 1567(get memo)
+     - 1ms
+     - 1ms
+     - 1ms
+     - 1ms
+     - 2ms
+     - 1ms
+     - 1ms
+     - 0ms
+     - 1ms
+     - 1ms
 
 2. 쿠키에 로그인 정보 저장 후 서버 통신
 
