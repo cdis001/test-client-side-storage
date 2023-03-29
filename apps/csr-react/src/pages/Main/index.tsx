@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { RouteList } from "@test/lib";
 
 const CheckVolumDiv = styled.div`
   display: flex;
@@ -41,11 +42,14 @@ const Main = () => {
           <button>1KB 추가</button>
         </div> */}
       </CheckVolumDiv>
-      <ul>
+      <RouteList>
         <li>
           <Link to="/cookies">cookies</Link>
         </li>
-      </ul>
+        <li>
+          <Link to="/sessionstorages">Session Storages</Link>
+        </li>
+      </RouteList>
     </section>
   );
 };

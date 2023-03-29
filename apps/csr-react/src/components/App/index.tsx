@@ -6,6 +6,10 @@ import Cookies from "../../pages/Cookies";
 import CookiesToDos from "../../pages/Cookies/ToDos";
 import CookieToDos from "../../pages/Cookies/CookieToDos";
 import CookiesLogin from "../../pages/Cookies/Login";
+import SessionStorages from "../../pages/sessionstorages";
+import SessionStoragesToDos from "../../pages/sessionstorages/ToDos";
+import OnlySessionStoragesToDos from "../../pages/sessionstorages/sessionStoragesToDos";
+import SessionStoragesLogin from "../../pages/sessionstorages/Login";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -25,6 +29,22 @@ const router = createBrowserRouter([
   {
     path: "cookies/cookieTodos",
     element: <CookieToDos />,
+  },
+  {
+    path: "sessionstorages",
+    element: <SessionStorages />,
+  },
+  {
+    path: "sessionstorages/toDos",
+    element: <SessionStoragesToDos />,
+  },
+  {
+    path: "sessionstorages/login",
+    element: <SessionStoragesLogin />,
+  },
+  {
+    path: "sessionstorages/sessionstoragesTodos",
+    element: <OnlySessionStoragesToDos />,
   },
 ]);
 
