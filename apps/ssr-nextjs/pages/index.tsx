@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { Button } from "@test/lib";
+import { Button, RouteList } from "@test/lib";
 
 const CheckVolumDiv = styled.div`
   display: flex;
@@ -51,11 +51,14 @@ export default function Home() {
           <button>1KB 추가</button>
         </div> */}
         </CheckVolumDiv>
-        <ul>
+        <RouteList>
           <li>
-            <Link href="/cookies">Cookies</Link>
+            <Link href="/cookies">cookies</Link>
           </li>
-        </ul>
+          <li>
+            <Link href="/sessionstorages">Session Storages</Link>
+          </li>
+        </RouteList>
       </section>
     </>
   );
