@@ -76,7 +76,7 @@ const OnlySessionStoragesToDos = () => {
     const memoList = sessionStorage.getItem("memo") || "";
 
     if (!!memoList) {
-      setMemo(memoList.split(","));
+      setMemo([...JSON.parse(memoList)]);
     }
     const end = new Date();
 
@@ -89,7 +89,7 @@ const OnlySessionStoragesToDos = () => {
     e.preventDefault();
     const newMemo = [text, ...memo];
     setMemo(newMemo);
-    sessionStorage.setItem("memo", newMemo);
+    sessionStorage.setItem("memo", JSON.stringify(newMemo));
     setText("");
     const end = new Date();
 
@@ -102,7 +102,7 @@ const OnlySessionStoragesToDos = () => {
     let newMemo = [...memo];
     newMemo.splice(idx, 1);
     setMemo(newMemo);
-    sessionStorage.setItem("memo", newMemo);
+    sessionStorage.setItem("memo", JSON.stringify(newMemo));
     const end = new Date();
 
     const time = end.getMilliseconds() - start.getMilliseconds();
