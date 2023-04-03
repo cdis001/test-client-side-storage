@@ -104,7 +104,7 @@ const SessionStoragesToDos = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const start = new Date();
-    const { data, status } = await createMemo({ contents: text });
+    const { data, status } = await createMemo({ contents: text }, token);
     if (status === 201) {
       const newMemo = [...memo, { id: data.id, contents: data.contents }];
       setMemo(newMemo);
@@ -118,7 +118,7 @@ const SessionStoragesToDos = () => {
 
   const deleteMemoBtn = async (id: number, idx: number) => {
     const start = new Date();
-    const { data, status } = await deleteMemo(id);
+    const { data, status } = await deleteMemo(id, token);
     if (status === 200) {
       let newMemo = [...memo];
       newMemo.splice(idx, 1);
