@@ -30,6 +30,20 @@
    - 쿠키 관리를 제대로 하지 않으면 내가 원하는 값이 안 들어갈 수 있음
      - userId 값이 잘못 들어가서 쿠키에 undefined인 userId와 제대로 된 값이 들어간 userId가 있었는데, undefined인 userId로 create memo를 하니 서버에 제대로 저장되지 않는 이슈가 있었음
 
+## storage
+
+- 쿠키처럼 서버와 통신하는 저장소가 아니므로 로그인 부분은 패스
+- Storage에 저장한 자료는 페이지 프로토콜별로 구분
+
+1. 메모(클라이언트 데이터 정보)를 저장한 뒤 읽어오는 속도 측정
+2. 탭을 여러개 두고 각각에 메모를 저장한 뒤 읽어오는 정보 확인
+3. http & https 에 메모 저장
+4. 5MB 이상 저장한 뒤 읽어오는 속도 측정
+
+### session
+
+### local
+
 ## log
 
 - axios default header 설정법
