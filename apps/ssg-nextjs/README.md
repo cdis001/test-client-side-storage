@@ -33,10 +33,37 @@
 
 1. 메모(클라이언트 데이터 정보)를 저장한 뒤 읽어오는 속도 측정
 2. 탭을 여러개 두고 각각에 메모를 저장한 뒤 읽어오는 정보 확인
-3. http & https 에 메모 저장
-4. 5MB 이상 저장한 뒤 읽어오는 속도 측정
+3. 저장가능한 용량만큼 저장한 뒤 읽어오는 속도 측정
 
 ### session
+
+1. 메모(클라이언트 데이터 정보)를 저장한 뒤 읽어오는 속도 측정
+   - session size: 130mb(사용 가능 용량의 대략 1/4)
+   - 3ms
+   - 4ms
+   - 7ms
+   - 5ms
+   - 3ms
+   - 5ms
+   - 6ms
+   - 2ms
+   - 5ms
+   - 3ms
+2. 탭을 여러개 두고 각각에 메모를 저장한 뒤 읽어오는 정보 확인
+   - 각각의 탭별로 별개의 데이터로 들어감
+     - 탭끼리 데이터가 공유되지 않음
+3. 저장가능한 용량만큼 저장한 뒤 읽어오는 속도 측정
+   - session size: 520mb
+   - 12ms
+   - 23ms
+   - 15ms
+   - 9ms
+   - 17ms
+   - 9ms
+   - 20ms
+   - 10ms
+   - 14ms
+   - 9ms
 
 ### local
 
@@ -83,3 +110,41 @@
 
      - 설정이 제일 어려워ㅠㅠ
      - 어설프게 아는게 독이 된 느낌
+
+- web storage에서 token 가져오는 로직 수행 중 에러
+  1.  개요
+  - nextjs에서 프로젝트 빌드중 비정상적으로 종료되는 상황 발생
+  2. 문제
+     ```
+     Build error occurred
+      Error: Export encountered errors on following paths:
+            /sessionstorages/todos
+         at /Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/export/index.js:415:19
+         at runMicrotasks (<anonymous>)
+         at processTicksAndRejections (internal/process/task_queues.js:95:5)
+         at async Span.traceAsyncFn (/Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/trace/trace.js:79:20)
+         at async /Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/build/index.js:1400:21
+         at async Span.traceAsyncFn (/Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/trace/trace.js:79:20)
+         at async /Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/build/index.js:1259:17
+         at async Span.traceAsyncFn (/Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/trace/trace.js:79:20)
+         at async Object.build [as default] (/Users/judy/Documents/git/learning-project/test-client-side-storage/.yarn/__virtual__/next-virtual-9c4cd0c477/0/cache/next-npm-13.1.6-4d04ae3ad7-584977e382.zip/node_modules/next/dist/build/index.js:66:29)
+     ```
+  3. 해결 과정
+     - 윈도우의 타입을 체크하는 로직 추가
+       ```javascript
+       const token =
+         typeof window !== "undefined"
+           ? sessionStorage.getItem("token") || ""
+           : "";
+       ```
+  4. 해결
+     - 윈도우의 타입을 체크하는 로직 추가
+       ```javascript
+       const token =
+         typeof window !== "undefined"
+           ? sessionStorage.getItem("token") || ""
+           : "";
+       ```
+       - Next는 ssr 기반이므로 window,document와 같은 전역 객체를 사용할 수 없음
+       - 클라이언트 랜더링 이전에 빌드되므로, 랜더링 전에 실행하여 window가 undefined이기 때문
+       - 따라서, 윈도우의 타입을 체크하여 undefined 가 아닐때만 sessionStorage에서 아이템을 가져오면 해결!
