@@ -58,6 +58,9 @@ export default function Home() {
           <li>
             <Link href="/sessionstorages">Session Storages</Link>
           </li>
+          <li>
+            <Link href="/localstorages">Local Storages</Link>
+          </li>
         </RouteList>
       </section>
     </>
