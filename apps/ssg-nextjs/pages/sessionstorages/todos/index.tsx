@@ -84,7 +84,8 @@ const SessionStoragesToDos = () => {
   const [memo, setMemo] = useState<memoTypes[]>([]);
   const [size, setSize] = useState<number>(0);
 
-  const token = sessionStorage.getItem("token") || "";
+  const token =
+    typeof window !== "undefined" ? sessionStorage.getItem("token") || "" : "";
 
   const router = useRouter();
 
