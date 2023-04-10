@@ -10,6 +10,8 @@ import SessionStorages from "../../pages/sessionstorages";
 import SessionStoragesToDos from "../../pages/sessionstorages/ToDos";
 import OnlySessionStoragesToDos from "../../pages/sessionstorages/sessionStoragesToDos";
 import SessionStoragesLogin from "../../pages/sessionstorages/Login";
+import LocalStorages from "../../pages/localstorages";
+import OnlyLocalStoragesToDos from "../../pages/localstorages/localStoragesToDos";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
   {
     path: "sessionstorages/sessionstoragesTodos",
     element: <OnlySessionStoragesToDos />,
+  },
+  {
+    path: "localstorages",
+    element: <LocalStorages />,
+  },
+  {
+    path: "localstorages/localStoragesTodos",
+    element: <OnlyLocalStoragesToDos />,
   },
 ]);
 

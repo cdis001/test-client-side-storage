@@ -49,6 +49,9 @@ const Main = () => {
         <li>
           <Link to="/sessionstorages">Session Storages</Link>
         </li>
+        <li>
+          <Link to="/localstorages">Local Storages</Link>
+        </li>
       </RouteList>
     </section>
   );
