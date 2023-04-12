@@ -12,6 +12,8 @@ import OnlySessionStoragesToDos from "../../pages/sessionstorages/sessionStorage
 import SessionStoragesLogin from "../../pages/sessionstorages/Login";
 import LocalStorages from "../../pages/localstorages";
 import OnlyLocalStoragesToDos from "../../pages/localstorages/localStoragesToDos";
+import IndexedDB from "../../pages/indexedDB";
+import OnlyIndexedDbToDos from "../../pages/indexedDB/indexedDBToDos";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
   {
     path: "localstorages/localStoragesTodos",
     element: <OnlyLocalStoragesToDos />,
+  },
+  {
+    path: "indexedDB",
+    element: <IndexedDB />,
+  },
+  {
+    path: "indexedDB/IndexedDBTodos",
+    element: <OnlyIndexedDbToDos />,
   },
 ]);
 

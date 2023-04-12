@@ -52,6 +52,9 @@ const Main = () => {
         <li>
           <Link to="/localstorages">Local Storages</Link>
         </li>
+        <li>
+          <Link to="/indexedDB">indexedDB</Link>
+        </li>
       </RouteList>
     </section>
   );
