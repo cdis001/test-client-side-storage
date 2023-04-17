@@ -25,12 +25,22 @@
     - log
       - 5mb까지만 들어간다고 했는데, 그 이상이 들어가길래 뭘까 싶어서 검색해봄
       - 찾아보니 쿠키는 정해진 용량이 있는데(아마 서버랑 통신하는 저장소라 그런듯?) web storage는 브라우저별로 용량이 다른듯
-      - 특히 크롬의 경우, 가용한 용량의 1/3까지 사용할 수 있음
       - web storage, indexedDB, cache API의 용량을 모두 합해서 용량을 잡는 것 같은데 왜 사용 용량에는 안 뜨는지 미스터리..
         - session storage만 안 뜸(local storage는 아직 확인 전)
       - web storage도 cookie처럼 한정된 용량 이상으로 업데이트 할 경우, 마지막 업데이트는 적용되지 않음
 3.  IndexedDB
+
+    - log
+      - 이게 맞나 싶을 정도로 데이터를 불러오는 속도는 매우 빠름
+      - 다만 web storage처럼 데이터를 불러온 뒤 component를 화면에 그리는 건 시간이 걸림
+      - 용량도 무식하게 많이 들어감
+      - 코드를 짜는 로직이 web storage나 cookie처럼 간단하진 않아서 이게 빠를까 걱정했는데 정말 괜한 걱정이였음..
+      - 코드를 리팩토링 할 수 있을 것 같긴 한데... 우선 다음 기회에
+
 4.  Cache API
+
+---
+
 5.  File System Access API
 6.  File and Directory Entries API
 7.  window.name
