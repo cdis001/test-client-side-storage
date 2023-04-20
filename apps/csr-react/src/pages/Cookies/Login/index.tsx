@@ -5,10 +5,7 @@ import styled from "styled-components";
 import { login } from "../../../api/login";
 import { setCookie, getCookie } from "@test/api";
 
-import InputBox from "../../../components/InputBox";
-import Button from "../../../components/Button";
-import ButtonList from "../../../components/ButtonList";
-import AuthBox from "../../../components/AuthBox";
+import { InputBox, Button, ButtonList, AuthBox } from "@test/lib";
 
 const CookiesLogin = () => {
   const [username, setUsername] = useState("");
