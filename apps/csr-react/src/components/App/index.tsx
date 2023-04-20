@@ -14,6 +14,9 @@ import LocalStorages from "../../pages/localstorages";
 import OnlyLocalStoragesToDos from "../../pages/localstorages/localStoragesToDos";
 import IndexedDB from "../../pages/indexedDB";
 import OnlyIndexedDbToDos from "../../pages/indexedDB/indexedDBToDos";
+import Cache from "../../pages/Cache";
+import CacheToDos from "../../pages/Cache/ToDos";
+import CacheLogin from "../../pages/Cache/Login";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -65,6 +68,15 @@ const router = createBrowserRouter([
   {
     path: "indexedDB/IndexedDBTodos",
     element: <OnlyIndexedDbToDos />,
+  },
+  { path: "cache", element: <Cache /> },
+  {
+    path: "cache/todos",
+    element: <CacheToDos />,
+  },
+  {
+    path: "cache/login",
+    element: <CacheLogin />,
   },
 ]);
 

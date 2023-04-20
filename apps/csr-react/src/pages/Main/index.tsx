@@ -55,6 +55,9 @@ const Main = () => {
         <li>
           <Link to="/indexedDB">indexedDB</Link>
         </li>
+        <li>
+          <Link to="/cache">CacheAPI</Link>
+        </li>
       </RouteList>
     </section>
   );
